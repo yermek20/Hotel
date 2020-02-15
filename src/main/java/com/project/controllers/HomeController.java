@@ -42,9 +42,9 @@ public class HomeController {
         Hotels h = new Hotels(null, name, country, stars);
 
         if(connection.addHotel(h)){
-            return "redirect:addhotel?success";
+            return "redirect:/?success";
         }else{
-            return "redirect:addhotel?error";
+            return "redirect:/?error";
         }
 
     }
@@ -59,8 +59,8 @@ public class HomeController {
 
     }
 
-    @PostMapping(path = "/edit")
-    public String toEditHotel(@RequestParam("id") Long id,
+    @PostMapping(path = "/edit/{id}")
+    public String toEditHotel(@PathVariable("id") Long id,
                               @RequestParam("name") String name,
                              @RequestParam("country") String country,
                              @RequestParam("stars") int stars){

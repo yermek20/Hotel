@@ -13,25 +13,24 @@
     <div class="row mb-3">
         <div class="col-sm-6 offset-3">
 
-            <form action="/edit" method="post">
-                <input type="hidden" name="id" placeholder="${hotels.id}">
+            <form action="/edit/${hotels.id}/" method="post">
                 <div class="form-group">
                     <label>
                         NAME:
                     </label>
-                    <input type="text" class="form-control" name = "name" placeholder="${hotels.name}">
+                    <input type="text" class="form-control" name = "name" value="${hotels.name}">
                 </div>
                 <div class="form-group">
                     <label>
                         CITY:
                     </label>
-                    <input type="text" class="form-control" name = "country" placeholder="${hotels.country}">
+                    <input type="text" class="form-control" name = "country" value="${hotels.country}">
                 </div>
                 <div class="form-group">
                     <label>
                         STARS:
                     </label>
-                    <input type="text" class="form-control" name = "stars" placeholder="${hotels.stars}">
+                    <input type="text" class="form-control" name = "stars" value="${hotels.stars}">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success">SAVE</button>

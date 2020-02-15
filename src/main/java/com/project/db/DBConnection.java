@@ -56,7 +56,7 @@ public class DBConnection {
     public boolean editHotel(Hotels hotels){
         boolean result = false;
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE hotels SET (name=?,country=?,stars=?) WHERE (id=?)");
+            PreparedStatement statement = connection.prepareStatement("UPDATE hotels SET name=?,country=?,stars=? WHERE id=?");
 
             statement.setString(1,hotels.getName());
             statement.setString(2,hotels.getCountry());
