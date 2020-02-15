@@ -59,18 +59,29 @@ public class HomeController {
 
     }
 
-    @PostMapping(path = "/edithotel")
+    @PostMapping(path = "/edit")
     public String toEditHotel(@RequestParam("id") Long id,
                               @RequestParam("name") String name,
                              @RequestParam("country") String country,
                              @RequestParam("stars") int stars){
 
         Hotels h = new Hotels(id, name, country, stars);
-
+        System.out.println(h.toString());
         if(connection.editHotel(h)){
-            return "redirect:readhotel?success";
+            return "redirect:/?success";
         }else{
-            return "redirect:readhotel?error";
+            return "redirect:/?error";
+        }
+
+    }
+
+    @GetMapping(path = "/delete/{id}")
+    public String delteHotel(@PathVariable("id") Long id ){
+
+        if(connection.deleteHotel(id)){
+            return "redirect:/?success";
+        }else{
+            return "redirect:/?error";
         }
 
     }

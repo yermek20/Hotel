@@ -56,7 +56,7 @@ public class DBConnection {
     public boolean editHotel(Hotels hotels){
         boolean result = false;
         try {
-            PreparedStatement statement = connection.prepareStatement("update hotels set name=?,country=?,stars=? where id=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE hotels SET (name=?,country=?,stars=?) WHERE (id=?)");
 
             statement.setString(1,hotels.getName());
             statement.setString(2,hotels.getCountry());
@@ -132,17 +132,21 @@ public class DBConnection {
         return hotel;
     }
 
-    public void deleteHotel(int id){
+    public boolean deleteHotel(Long id){
+
+        boolean result = false;
+
         try {
             PreparedStatement statement = connection.prepareStatement("" +
                     "DELETE FROM hotels WHERE id = ?"
             );
-            statement.setInt(1, id);
-            statement.executeUpdate();
+            statement.setLong(1, id);
+            result = statement.executeUpdate()>0;
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
+        return result;
     }
 
 }

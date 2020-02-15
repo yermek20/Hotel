@@ -13,7 +13,7 @@
     <div class="row mb-3">
         <div class="col-sm-6 offset-3">
 
-            <form action="/edithotel" method="post">
+            <form action="/edit" method="post">
                 <input type="hidden" name="id" placeholder="${hotels.id}">
                 <div class="form-group">
                     <label>
@@ -35,6 +35,7 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success">SAVE</button>
+                    <a href="/delete/${hotels.id}/" class="btn btn-success">DELETE</a>
                 </div>
 
             </form>
